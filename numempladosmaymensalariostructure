@@ -1,0 +1,42 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+#include <string.h>
+
+struct empleados
+{
+    char nombre[20];
+    double salario;
+}empl[1000000];
+
+int main(){
+    int num=0 ;
+    int mayor = 0;
+    int menor = 10000000000;
+    int posmay = 0;
+    int posmen = 0;
+    cout << "Ingrese la cantidad de empleados" << endl;
+    cin >> num;
+    for (int i = 0; i < num; i++) {
+        while (getchar() != '\n');
+        cout << i + 1 << "Ingrese el nombre del empleado" << endl; cin.getline(empl[i].nombre,20,'\n');
+        cout << i + 1 << "Ingrese el sueldo del empleado" << endl; cin >> empl[i].salario;
+        if (mayor < empl[i].salario) {
+            posmay = i;
+            mayor = empl[i].salario;
+        }
+        if (menor > empl[i].salario) {
+            posmen = i;
+            menor = empl[i].salario;
+        }
+    }
+    cout << "El sueldo menor es de " << empl[posmen].nombre << endl;
+    cout << "Con un sueldo de " << empl[posmen].salario << endl;
+    cout << "El sueldo mayor es de " << empl[posmay].nombre << endl;
+    cout << "Con un sueldo de " << empl[posmay].salario << endl;
+
+
+
+
+    return 0;
+}
