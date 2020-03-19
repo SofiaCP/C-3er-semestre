@@ -1,0 +1,38 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+#include <string.h>
+
+struct alumno
+{
+	char nombre[30];
+	int edad=0;
+	float promedio=-1;
+
+}al[3]; //3 alumnos
+
+int main() {
+	int promay = 0;
+	int almay = 0;
+	for (int i = 0; i <3; i++) {
+		
+		cout << i + 1 << "Digite el nombre"; cin.getline(al[i].nombre, 30, '\n');
+		while (al[i].edad < 1) {
+			cout << i + 1 << "Digite la edad"; cin >> al[i].edad;
+		}
+		while (al[i].promedio < 0 || al[i].promedio>20) {
+			cout << i + 1 << "Digite el promedio";  cin >> al[i].promedio;
+		}
+		if (al[i].promedio > promay) {
+			promay = al[i].promedio;   //el mayor
+			almay = i;
+		}
+		while (getchar() != '\n'); //Para vaciar el buffer VS2019
+	}
+	cout << "El alumno con mayor promedio es: " << al[almay].nombre << endl;
+	cout << "Con el promedio" << promay << endl;
+
+	getchar();
+
+	return 0;
+}
