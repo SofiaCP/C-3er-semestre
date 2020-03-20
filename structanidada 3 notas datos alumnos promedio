@@ -1,0 +1,43 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+#include <string.h>
+
+struct promedio {
+	float nota1;
+	float nota2;
+	float nota3;
+};
+struct alumno {
+	char nombre[20];
+	char sexo[20];
+	int edad;
+	struct promedio prom; //estructura anidada
+}alum;
+int main() {
+	float promedio;
+  //no vaciar aqui
+	cout << "Digite su nombre: ";cin.getline(alum.nombre, 20, '\n');
+	cout << "Digite el sexo "; cin.getline(alum.sexo, 20, '\n');
+	cout << "Digite su edad "; cin >> alum.edad;
+	while (getchar() != '\n'); //vaciar el buffer aqui
+	cout << endl<<"**********************" << endl << "NOTAS DEL ALUMNO" << endl;
+	cout << "Nota 1: "; cin >> alum.prom.nota1;
+	cout << "Nota 2: "; cin >> alum.prom.nota2;
+	cout << "Nota 3: "; cin >> alum.prom.nota3;
+	promedio = (alum.prom.nota1 + alum.prom.nota2 + alum.prom.nota3) / 3;
+	cout << "Nombre: " << alum.nombre << " del sexo " << alum.sexo << " edad: " << alum.edad<<endl;
+	cout << "Con el promedio " << promedio;
+
+
+
+
+
+
+
+
+
+
+	getchar();
+	return 0;
+}
