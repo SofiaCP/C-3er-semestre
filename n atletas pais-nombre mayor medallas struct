@@ -1,0 +1,40 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+#include <string.h>
+
+struct atleta {
+	char nombre[20] = {};
+	char pais[20];
+	int numed;
+}atl[234];
+
+
+int main() {
+	int cant;
+	int may = 0;
+	int pos=0;
+	cout << "Ingrese la cantidad de atletas" << endl; cin >> cant;
+	for (int i = 0; i < cant; i++) {
+		while (getchar() != '\n'); //Se vacea el buffer con esto porque es vs2019 y se pone adelante para que no se coma el nombre
+		cout << i + 1 << "Ingrese el nombre del atleta " << endl; cin.getline(atl[i].nombre, 20, '\n');
+		cout << i + 1 << "Ingrese el pais del atleta " << endl; cin.getline(atl[i].pais, 20, '\n');
+		cout << i + 1 << "Ingrese el numero de medallas ganadas" << endl; cin >> atl[i].numed;
+
+		
+		if (may < atl[i].numed) {
+			pos = i;
+			may = atl[i].numed;
+		}
+
+	}
+	
+	cout << "El atleta es " << atl[pos].nombre << endl;
+	cout<< " del pais " << atl[pos].pais << " con " << atl[pos].numed << endl;
+	
+
+
+
+	getchar();
+	return 0;
+}
