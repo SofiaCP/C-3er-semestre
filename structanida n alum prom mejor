@@ -1,0 +1,48 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+#include <string.h>
+
+struct promedio {
+	float nota1;
+	float nota2;
+	float nota3;
+};
+struct alumno {
+	char nombre[20];
+	char sexo[20];
+	int edad;
+	struct promedio prom;
+}alum[100];
+int main() {
+	float promedio;
+	float mayprom = 0;
+	int cant;
+	int pos = 0;
+	cout << "Ingrese la cantidad de alumnos; "; cin >> cant;
+	for (int i = 0; i < cant; i++) {
+		while (getchar() != '\n'); //cuando hay n alumnos va aqui
+		cout << "Digite su nombre: "; cin.getline(alum[i].nombre, 20, '\n');
+		cout << "Digite el sexo "; cin.getline(alum[i].sexo, 20, '\n');
+		cout << "Digite su edad "; cin >> alum[i].edad;
+		cout << endl << "**********************" << endl << "NOTAS DEL ALUMNO" << endl;
+		cout << "Nota 1: "; cin >> alum[i].prom.nota1;
+		cout << "Nota 2: "; cin >> alum[i].prom.nota2;
+		cout << "Nota 3: "; cin >> alum[i].prom.nota3;
+		promedio = (alum[i].prom.nota1 + alum[i].prom.nota2 + alum[i].prom.nota3) / 3;
+
+		if (mayprom < promedio) {
+			mayprom = promedio;
+			pos = i;
+		}
+	}
+
+	cout << "El alumno con mayor nota es: " << alum[pos].nombre << endl;
+	cout << "De sexo " << alum[pos].sexo << " y una edad de " << alum[pos].edad << endl;
+	cout << "con un promedio de " << mayprom;
+
+
+
+
+	return 0;
+}
