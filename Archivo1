@@ -18,7 +18,7 @@ int main()
 
 void escribir() {
     ofstream archivo;
-    archivo.open("e://Texto//Ejemplo.txt", ios::out);   // si pones e:// es para colocarlo en una carpeta
+    archivo.open("e://Texto//Ejemplo.txt", ios::out);   // si pones e:// es para colocarlo en una carpeta, ios es para crearlo/abrirlo
     //abre correctamente?
     if (archivo.fail()) {
         cout << "No se pudo abrir el archivo";
