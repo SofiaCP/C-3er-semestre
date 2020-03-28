@@ -1,0 +1,30 @@
+// ConsoleApplication6.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include <stdlib.h> //para verificar si abrio o no
+#include <fstream>  //Para archivos
+using namespace std;
+
+
+void escribir();
+int main()
+{
+    escribir();
+
+
+    return 0;
+}
+
+void escribir() {
+    ofstream archivo;
+    archivo.open("e://Texto//Ejemplo.txt", ios::out);   // si pones e:// es para colocarlo en una carpeta
+    //abre correctamente?
+    if (archivo.fail()) {
+        cout << "No se pudo abrir el archivo";
+        exit(1);
+    }
+    archivo << "Hola soy un archivo de texto :0";
+    archivo.close();
+
+}
